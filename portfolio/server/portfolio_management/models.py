@@ -8,6 +8,11 @@ class Designation(models.Model):
 	"""
 	name = models.CharField(_('Designation'), max_length=80, unique=True)
 
+	def __str__(self):
+		"""
+		"""
+		return self.name
+
 class Organization(models.Model):
 	"""
 	Model class to store Organization details.
@@ -18,11 +23,21 @@ class Organization(models.Model):
 	joined_at = models.DateField(_('Joined At'))
 	leaved_at = models.DateField(_('Leaved At'))
 
+	def __str__(self):
+		"""
+		"""
+		return self.name
+
 class Role(models.Model):
 	"""
 	Model class to store Role details.
 	"""
 	name = models.CharField(_('Name'), max_length=80)
+
+	def __str__(self):
+		"""
+		"""
+		return self.name
 
 
 class Project(models.Model):
@@ -37,3 +52,7 @@ class Project(models.Model):
 		on_delete=models.CASCADE)
 	role = models.ManyToManyField('Role', verbose_name=_('Role'))
 
+	def __str__(self):
+		"""
+		"""
+		return self.name
